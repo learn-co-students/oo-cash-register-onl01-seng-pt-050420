@@ -23,7 +23,7 @@ class CashRegister
 
    def apply_discount
     if discount != nil
-        @total -= total * (discount.to_f/100)
+        total -= 5 * (discount.to_f/100)
         "After the discount, the total comes to $#{total.to_i}."
     else
         "There is no discount to apply."
@@ -37,6 +37,5 @@ class CashRegister
    def void_last_transaction
     @total -= transactions[cart[-1]]["price"] * transactions[cart[-1]]["quantity"]
    end
-
 
 end
