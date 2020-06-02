@@ -1,10 +1,9 @@
-class CashRegister
+ class CashRegister
       attr_accessor :total, :discount, :title, :items, :last_transaction
       
       def initialize(discount = 0)
         @total = 0
         @discount = discount
-        @last_transaction = 0
         @items = []
         @items << title
         
@@ -30,19 +29,17 @@ class CashRegister
             if @discount > 0 
             @discounted_amount = (@price * @discount)/100
             @total = @price - @discounted_amount
-                "After the discount, the total comes to $800."
+                "After the discount, the total comes to $#{@total}."
             else
                 "There is no discount to apply."  
             end
         end
+        
         def items
              @items.compact
         end
         
         def void_last_transaction
-            @total -= @price
-            if @last_transaction > @total 
-              puts 0.0
-            end
+          @total = @total - @last_transaction
         end
 end
