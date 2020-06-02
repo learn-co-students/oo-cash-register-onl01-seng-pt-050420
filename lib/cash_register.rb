@@ -15,7 +15,7 @@ class CashRegister
         @quantity = quantity
         @price = price 
         @title = title
-        @last_transaction = last_transaction
+        @last_transaction = price * quantity
         self.total += price * quantity
 
         if @quantity > 0
@@ -41,7 +41,5 @@ class CashRegister
         
         def void_last_transaction
             @total -= @price
-            if 
-          end
         end
 end
